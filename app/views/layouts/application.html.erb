@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GifBox</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <%= flash[:success] %>
+
+    <% if current_user %>
+      Welcome, <%= current_user.name %>
+      <%= link_to 'Logout', logout_path, method: :delete %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
